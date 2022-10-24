@@ -3,6 +3,10 @@
 :root{
   --nba-blue: #1d428a;
   --nba-red: #c8102e;
+  --bg-color: #111;
+  --bg-color-light: #222;
+  --bg-color-dark: #000;
+  --text-color: #fff;
 }
 html,
 body {
@@ -25,7 +29,8 @@ a {
     color-scheme: dark;
   }
   body {
-    color: white;
-    background: black;
+    transition: .3s ease-in;
+    color: var(--text-color);
+    background: var(--bg-color);
   }
 }

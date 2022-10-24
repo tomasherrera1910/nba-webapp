@@ -5,7 +5,7 @@
     padding: 1rem 0.5rem;
     text-align: center;
     width: 100%;
-    background-color: #222;
+    background-color: var(--bg-color-light);
     color: #aaa;
     font-weight: 200;
 }

@@ -9,19 +9,34 @@
 .navbar img{
     height: 50px;
 }
+.rightSection{
+    display:flex;
+}
 .toggleButton{
     display:none;
+    color: #fff;
+    background: none;
+    border:none;
+    outline: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: ease .3s;
+}
+.toggleButton:hover{
+    color: var(--nba-red);
 }
 .navActive{
     left: 0;
 }
 .nav{
+    position: absolute;
     transition: ease-in-out .3s;
 }
 .nav ul{
     display:flex;
     gap: 1rem;
     list-style: none;
+    color: #fff;
 }
 .nav ul li:hover{
     transition: ease .3s;
@@ -29,15 +44,18 @@
 
 }
 @media(max-width: 600px){
+    .navbar{
+        justify-content: space-between;
+        padding: 0 .5rem;
+    }
     .nav{
-        position: absolute;
         top: 50px;
         width:100%;
         background-color: var(--nba-blue);
         z-index: 5;
     }
     .nav:not(.navActive){
-        left: 100%;
+        left: -100%;
     }
     .toggleButton{
         display:block;
