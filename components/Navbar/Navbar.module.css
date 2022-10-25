@@ -17,6 +17,13 @@
     gap: 1rem;
     align-items: center;
 }
+.leftSection a{
+    cursor: pointer;
+    transition: ease .3s;
+}
+.leftSection a:hover{
+    transform: scale(.9);
+}
 .themeButton{
     display:flex;
     gap:1rem;
@@ -100,7 +107,7 @@
         z-index: 5;
     }
     .nav:not(.navActive){
-        right: -100%;
+        right: 100%;
     }
     .toggleButton{
         display:block;

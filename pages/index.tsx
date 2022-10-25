@@ -1,7 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
-import { Footer } from '../components/Footer'
-import { Navbar } from '../components/Navbar'
+
 import { TeamsGrid } from '../components/TeamsGrid'
 import { api } from '../utils/api'
 import { type Team } from '../utils/types'
@@ -28,9 +27,7 @@ const Home: NextPage<Props> = ({teams}) => {
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>
       <main>
-        <Navbar/>
         <TeamsGrid teams={teams}/>
-        <Footer/>
       </main>
     </div>
   )

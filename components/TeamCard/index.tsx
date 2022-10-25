@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { CSSProperties } from 'react'
 import {type Team} from '../../utils/types'
 import styles from './TeamCard.module.css'
@@ -13,11 +14,13 @@ export function TeamCard({team}: Props){
         "--logo": `url(${team.WikipediaLogoUrl})`
     } as CSSProperties
     return(
+        <Link href={`/team/players/${team.Key}`}>
         <article className={card} style={cardColors}>
             <picture>
             <img src={team.WikipediaLogoUrl} alt={team.Key}/>
             </picture>
             <h3 className={teamName}><span>{team.City}</span> {team.Name}</h3>
         </article>
+        </Link>
     )
 }

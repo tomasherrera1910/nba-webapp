@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Link from 'next/link'
 import {darkTheme, lightTheme} from '../../utils/theme'
 import {toggle} from '../../utils/toggle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,7 +7,7 @@ import { faBars, faLightbulb} from '@fortawesome/free-solid-svg-icons'
 import { faLightbulb as faLightbulbOff} from '@fortawesome/free-regular-svg-icons'
 import styles from './Navbar.module.css'
 const {navbar, nav, toggleButton, themeButton, navActive, leftSection, rightSection, on, off, darkSide, lightSide} = styles
-const NBAlogoURL = 'https://assets.stickpng.com/images/58428defa6515b1e0ad75ab4.png'
+
 export function Navbar(){
     const [darkThemeActive, setDarkTheme] = useState<boolean>(true)
     const handleTheme = () => {
@@ -20,9 +21,11 @@ export function Navbar(){
     return(
         <header className={navbar}>
             <section className={leftSection}>
-                <picture>
-                <img src={NBAlogoURL} alt="NBA LOGO"/>
-                </picture>
+                <Link href="/"><a>
+                    <picture>
+                        <img src='/NBAlogo.png' alt="NBA LOGO"/>
+                    </picture>
+                </a></Link>
                 <button onClick={handleTheme} className={themeButton}>
                     <span className={darkThemeActive ? darkSide : lightSide}>
                         {

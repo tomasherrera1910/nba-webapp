@@ -1,5 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
+import { PlayerTeamCard } from '../../../../components/PlayerTeamCard'
 import { api } from '../../../../utils/api'
 import { Player } from '../../../../utils/types'
 
@@ -17,7 +18,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async (context) => 
   }
 }
 const PlayersTeam: NextPage<Props> = ({players}) => {
-    console.log({players})
   return (
     <div>
       <Head>
@@ -26,7 +26,11 @@ const PlayersTeam: NextPage<Props> = ({players}) => {
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>
       <main>
-        
+        {
+          players.map(player => (
+           <PlayerTeamCard key={player.PlayerID} player={player}/>
+          ))
+        }
       </main>
     </div>
   )
