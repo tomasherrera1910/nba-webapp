@@ -9,8 +9,53 @@
 .navbar img{
     height: 50px;
 }
+.leftSection,
 .rightSection{
     display:flex;
+}
+.leftSection{
+    gap: 1rem;
+    align-items: center;
+}
+.themeButton{
+    display:flex;
+    gap:1rem;
+    position:relative;
+    cursor: pointer;
+    text-align: center;
+    transition: ease-in-out 0.3s;
+    border:none;
+    width: 50px;
+    height: 25px;
+    background: var(--bg-color-dark);
+    border-radius: 1rem;
+    font-size: 1rem;
+    line-height: 25px;
+}
+.darkSide,
+.lightSide{
+    position:absolute;
+    background: var(--bg-color-light);
+    display:block;
+    top:0;
+    width:25px;
+    height:25px;
+    border-radius: 100px;
+    transition: ease all .3s;
+}
+.darkSide{
+    left: 0;
+    right: auto;
+}
+.lightSide{
+    left: auto;
+    right: 0;
+}
+.on{
+    color: #e8bc0d;
+}
+.off{
+    color: #0404e8;
 }
 .toggleButton{
     display:none;
@@ -26,10 +71,9 @@
     color: var(--nba-red);
 }
 .navActive{
-    left: 0;
+    right: 0;
 }
 .nav{
-    position: absolute;
     transition: ease-in-out .3s;
 }
 .nav ul{
@@ -49,13 +93,14 @@
         padding: 0 .5rem;
     }
     .nav{
+        position: absolute;
         top: 50px;
         width:100%;
         background-color: var(--nba-blue);
         z-index: 5;
     }
     .nav:not(.navActive){
-        left: -100%;
+        right: -100%;
     }
     .toggleButton{
         display:block;

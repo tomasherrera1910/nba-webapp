@@ -18,4 +18,67 @@ export type Team = {
     NbaDotComTeamID: number;
 }
 
-
+export type RawPlayer = {
+    PlayerID: number;
+    SportsDataID: string;
+    Status: string;
+    TeamID: number;
+    Team: string;
+    Jersey: number;
+    PositionCategory: string;
+    Position: string;
+    FirstName: string;
+    LastName: string;
+    Height: number;
+    Weight: number;
+    BirthDate: Date;
+    BirthCity: string;
+    BirthState: string;
+    BirthCountry: string;
+    HighSchool?: any;
+    College: string;
+    Salary: number;
+    PhotoUrl: string;
+    Experience: number;
+    SportRadarPlayerID: string;
+    RotoworldPlayerID: number;
+    RotoWirePlayerID: number;
+    FantasyAlarmPlayerID: number;
+    StatsPlayerID: number;
+    SportsDirectPlayerID: number;
+    XmlTeamPlayerID: number;
+    InjuryStatus: string;
+    InjuryBodyPart: string;
+    InjuryStartDate?: any;
+    InjuryNotes: string;
+    FanDuelPlayerID: number;
+    DraftKingsPlayerID: number;
+    YahooPlayerID: number;
+    FanDuelName: string;
+    DraftKingsName: string;
+    YahooName: string;
+    DepthChartPosition: string;
+    DepthChartOrder: number;
+    GlobalTeamID: number;
+    FantasyDraftName: string;
+    FantasyDraftPlayerID: number;
+    UsaTodayPlayerID: number;
+    UsaTodayHeadshotUrl: string;
+    UsaTodayHeadshotNoBackgroundUrl: string;
+    UsaTodayHeadshotUpdated: Date;
+    UsaTodayHeadshotNoBackgroundUpdated: Date;
+    NbaDotComPlayerID: number;
+}
+export type Player = {
+    PlayerID: number;
+    Status: string;
+    Team: string;
+    Jersey: number;
+    Position: string;
+    FirstName: string;
+    LastName: string;
+    College: string;
+    Salary: number;
+    PhotoUrl: string;
+    Experience: number;
+}
