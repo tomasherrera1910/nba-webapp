@@ -1,6 +1,61 @@
 .cardPlayer{
     display:flex;
     gap: 1rem;
-    padding: 0.5rem 0.75rem;
-    border-bottom: 1px solid var(--text-color);
+    padding: 0.5rem 0 0 0.75rem;
+    border-bottom: .5px solid var(--text-color);
+}
+.cardInfo{
+    position: relative;
+    display:flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+}
+.cardInfo h3{
+    display:flex;
+    align-items: center;
+    gap: .5rem;
+    font-weight: 400;
+    font-size: 1.5rem;
+    margin: 0;
+}
+.cardInfo h3 span{
+    font-weight: 700;
+    font-size: .8rem;
+    opacity: .6;
+}
+.jerseyNumber{
+    font-weight: 200;    
+    font-size: 1.25rem;
+}
+.statsPlayer{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .5rem;
+}
+.statsPlayer section{
+    display:flex;
+    gap: .25rem;
+}
+.statsPlayer div{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--text-color);
+    height: fit-content;
+    text-align: center;    
+}
+.statsPlayer section{
+    display:flex;
+}
+.statsPlayer div h4{
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    margin: 0;
+    padding: 0 .25rem;
+}
+.statsPlayer div p{
+    margin:0;
 }

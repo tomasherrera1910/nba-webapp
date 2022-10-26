@@ -14,7 +14,7 @@ export function TeamCard({team}: Props){
         "--logo": `url(${team.WikipediaLogoUrl})`
     } as CSSProperties
     return(
-        <Link href={`/team/players/${team.Key}`}>
+        <Link href={`/team/${team.Key}`}>
         <article className={card} style={cardColors}>
             <picture>
             <img src={team.WikipediaLogoUrl} alt={team.Key}/>

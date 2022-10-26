@@ -1,8 +1,8 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import { PlayerTeamCard } from '../../../../components/PlayerTeamCard'
-import { api } from '../../../../utils/api'
-import { Player } from '../../../../utils/types'
+import { PlayerTeamCard } from '../../../components/PlayerTeamCard'
+import { api } from '../../../utils/api'
+import { Player } from '../../../utils/types'
 
 
 type Props = {
