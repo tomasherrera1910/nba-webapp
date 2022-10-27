@@ -10,16 +10,26 @@
     justify-content: center;
     /* align-items: center; */
     flex-direction: column;
+    flex:1;
 }
-.cardInfo h3{
+.cardInfo div{
     display:flex;
     align-items: center;
     gap: .5rem;
+}
+.cardInfo div h3{
+    display:flex;
+    flex-direction: column;
     font-weight: 400;
     font-size: 1.5rem;
+    line-height: 1;
     margin: 0;
 }
-.cardInfo h3 span{
+.cardInfo div h3 span{
+    font-weight: 400;
+    font-size: 1rem;
+}
+.position{
     font-weight: 700;
     font-size: .8rem;
     opacity: .6;
@@ -33,6 +43,7 @@
     flex-direction: column;
     align-items: center;
     gap: .5rem;
+    padding: 0 1rem;
 }
 .statsPlayer section{
     display:flex;

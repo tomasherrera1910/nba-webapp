@@ -1,11 +1,39 @@
-import type { Player, RawPlayer, RawPlayerStatsByTeam, Team } from "./types"
+import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats} from "./types"
 import {formatPercentages, formatStats} from './formatStats'
 const baseURL = 'https://api.sportsdata.io/v3/nba'
 const KEY = process.env.KEY_NBA_API
 export const api = {
     getTeams: async():Promise<Team[]> => {
-        return fetch(`${baseURL}/scores/json/teams?key=${KEY}`)
-        .then(response => response.json())
+        const responseTeam = await fetch(`${baseURL}/scores/json/teams?key=${KEY}`)
+        const teamsData:RawTeam[] = await responseTeam.json()
+        const responseTeamPosition = await fetch(`${baseURL}/scores/json/Standings/2023?key=${KEY}`)
+        const teamsPosition:RawTeamStats[] = await responseTeamPosition.json()
+        const teamsMap = new Map()
+         teamsData.forEach(team => (
+            teamsMap.set(team.Key, {
+                TeamID: team.TeamID,
+                Key: team.Key,
+                Active: team.Active,
+                City: team.City,
+                Name: team.Name,
+                Conference: team.Conference,
+                Division: team.Division,
+                PrimaryColor: team.PrimaryColor,
+                SecondaryColor: team.SecondaryColor,
+                TertiaryColor: team.TertiaryColor,
+                WikipediaLogoUrl: team.WikipediaLogoUrl,
+            })
+         ))
+         teamsPosition.forEach(team => (
+            teamsMap.set(team.Key, {
+                ...teamsMap.get(team.Key),
+                Wins: team.Wins,
+                Losses: team.Losses,
+                Percentage: team.Percentage
+            })
+         ))
+        const teams: Team[] = Array.from(teamsMap.values())
+        return teams
     },
     getPlayersByTeam: async(team:string):Promise<Player[]> => {
         const responsePlayer = await fetch(`${baseURL}/scores/json/Players/${team}?key=${KEY}`)

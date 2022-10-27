@@ -8,16 +8,16 @@ type Props = {
 }
 export function TeamsGrid({teams}: Props){
     const eastTeams = useMemo<Team[]>(() => {
-        return teams.filter(team => team.Conference.toLowerCase() === 'eastern').sort((a, b) => a.Name.localeCompare(b.Name))
+        return teams.filter(team => team.Conference.toLowerCase() === 'eastern').sort((a, b) => b.Percentage - a.Percentage)
     },[teams])
     const westTeams = useMemo<Team[]>(() => {
-        return teams.filter(team => team.Conference.toLowerCase() === 'western').sort((a, b) => a.Name.localeCompare(b.Name))
+        return teams.filter(team => team.Conference.toLowerCase() === 'western').sort((a, b) => b.Percentage - a.Percentage)
     },[teams])
 
     return (
         <section className={teamsContainer}>
-            <ConferenceGrid teams={eastTeams} title={`East`}/>
             <ConferenceGrid teams={westTeams} title={`West`}/>
+            <ConferenceGrid teams={eastTeams} title={`East`}/>
         </section>
     )
 

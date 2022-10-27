@@ -6,15 +6,52 @@
     gap: 1rem;
     margin: 1rem .5rem;
 }
+.conferenceWithTitleContainer{
+    display:flex;
+    flex: 1;
+    flex-direction: column;
+    gap: .5rem;
+}
 .conferenceName{
+    display:flex;
+    gap: .5rem;
+    justify-content: center;
+    align-items: center;
     text-align:center;
     font-family: 'Bebas Neue', cursive;
-    font-size: 2rem;
+    font-size: 2.4rem;
     margin: 0;
+    line-height: 1;
+    transition: ease-in-out .3s;
+}
+.toggleButton{
+    display:none;
+}
+.conferenceName .toggleButton{
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: 2rem;
+    cursor: pointer;
 }
 .conferenceContainer{
     display:flex;
     flex: 1;
     flex-direction: column;
     gap: .75rem;
+}
+.hiddenConference{
+    display:none;
+}
+.titleConferenceDisabled{
+    opacity: .6;
+}
+@media (max-width: 615px){
+    .toggleButton{
+        display:block;
+    }
+    .teamsContainer{
+        flex-direction: column;
+        align-items: initial;
+    }
 }

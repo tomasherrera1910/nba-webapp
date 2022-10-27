@@ -1,4 +1,4 @@
-import type { GetStaticProps, NextPage } from 'next'
+import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
 
 import { TeamsGrid } from '../components/TeamsGrid'
@@ -8,8 +8,7 @@ import { type Team } from '../utils/types'
 type Props = {
   teams: Team[]
 }
-export const getStaticProps: GetStaticProps<Props> = async () => {
-  
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const teams = await api.getTeams()
   return {
     props: {

@@ -1,4 +1,4 @@
-export type Team = {
+export type RawTeam = {
     TeamID: number;
     Key: string;
     Active: boolean;
@@ -17,7 +17,53 @@ export type Team = {
     GlobalTeamID: number;
     NbaDotComTeamID: number;
 }
-
+export type RawTeamStats = {
+    Season: number;
+    SeasonType: number;
+    TeamID: number;
+    Key: string;
+    City: string;
+    Name: string;
+    Conference: string;
+    Division: string;
+    Wins: number;
+    Losses: number;
+    Percentage: number;
+    ConferenceWins: number;
+    ConferenceLosses: number;
+    DivisionWins: number;
+    DivisionLosses: number;
+    HomeWins: number;
+    HomeLosses: number;
+    AwayWins: number;
+    AwayLosses: number;
+    LastTenWins: number;
+    LastTenLosses: number;
+    PointsPerGameFor: number;
+    PointsPerGameAgainst: number;
+    Streak: number;
+    GamesBack: number;
+    StreakDescription: string;
+    GlobalTeamID: number;
+    ConferenceRank: number;
+    DivisionRank: number;
+}
+export type Team = {
+    TeamID: number;
+    Key: string;
+    Active: boolean;
+    City: string;
+    Name: string;
+    Conference: string;
+    Division: string;
+    Wins: number;
+    Losses: number;
+    Percentage: number;
+    PrimaryColor: string;
+    SecondaryColor: string;
+    TertiaryColor: string;
+    WikipediaLogoUrl: string;
+}
 export type RawPlayer = {
     PlayerID: number;
     SportsDataID: string;
