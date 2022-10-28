@@ -1,22 +1,32 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
+import { GamesHeader } from '../components/GamesHeader'
 
 import { TeamsGrid } from '../components/TeamsGrid'
 import { api } from '../utils/api'
-import { type Team } from '../utils/types'
+import type { Team, Game } from '../utils/types'
 
 type Props = {
-  teams: Team[]
+  teams: Team[];
+  yesterdayGames: Game[];
+  todayGames: Game[];
+  tomorrowGames: Game[];
 }
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const teams = await api.getTeams()
+  const yesterdayGames = await api.getGamesByDay('yesterday')
+  const todayGames = await api.getGamesByDay('today')
+  const tomorrowGames = await api.getGamesByDay('tomorrow')
   return {
     props: {
-      teams
+      teams,
+      yesterdayGames,
+      todayGames,
+      tomorrowGames
     }
   }
 }
-const Home: NextPage<Props> = ({teams}) => {
+const Home: NextPage<Props> = ({teams, yesterdayGames, todayGames, tomorrowGames}) => {
 
   return (
     <div>
@@ -26,6 +36,7 @@ const Home: NextPage<Props> = ({teams}) => {
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>
       <main>
+        <GamesHeader yesterday={yesterdayGames} today={todayGames} tomorrow={tomorrowGames}/>
         <TeamsGrid teams={teams}/>
       </main>
     </div>

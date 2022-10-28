@@ -11,6 +11,8 @@
     color: var(--primary);
     cursor: pointer;
     transition: ease-in-out .3s;
+    width: 100%;
+    max-width: 700px;
 }
 .card:before {
     content: " ";

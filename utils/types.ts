@@ -199,3 +199,72 @@ export type Player = {
     ThreePointsPercentage: number;
     FreeThrowPercentage: number;
 }
+
+type Quarter = {
+    QuarterID: number;
+    GameID: number;
+    Number: number;
+    Name: string;
+    AwayScore: number;
+    HomeScore: number;
+}
+
+export type RawGame = {
+    GameID: number;
+    Season: number;
+    SeasonType: number;
+    Status: string;
+    Day: Date;
+    DateTime: Date;
+    AwayTeam: string;
+    HomeTeam: string;
+    AwayTeamID: number;
+    HomeTeamID: number;
+    StadiumID: number;
+    Channel: string;
+    Attendance?: number;
+    AwayTeamScore?: number;
+    HomeTeamScore?: number;
+    Updated: Date;
+    Quarter?: any;
+    TimeRemainingMinutes?: any;
+    TimeRemainingSeconds?: any;
+    PointSpread: number;
+    OverUnder: number;
+    AwayTeamMoneyLine: number;
+    HomeTeamMoneyLine: number;
+    GlobalGameID: number;
+    GlobalAwayTeamID: number;
+    GlobalHomeTeamID: number;
+    PointSpreadAwayTeamMoneyLine: number;
+    PointSpreadHomeTeamMoneyLine: number;
+    LastPlay: string;
+    IsClosed: boolean;
+    GameEndDateTime?: Date;
+    HomeRotationNumber: number;
+    AwayRotationNumber: number;
+    NeutralVenue: boolean;
+    OverPayout: number;
+    UnderPayout: number;
+    CrewChiefID: number;
+    UmpireID: number;
+    RefereeID: number;
+    AlternateID?: any;
+    DateTimeUTC: Date;
+    SeriesInfo?: any;
+    Quarters: Quarter[];
+}
+
+export type Game = {
+    GameID: number;
+    Status: string;
+    Day: Date;
+    DateTime: Date;
+    AwayTeam: string;
+    HomeTeam: string;
+    Channel: string;
+    AwayTeamScore?: number;
+    HomeTeamScore?: number;
+    IsClosed: boolean;
+    Quarters: Quarter[];  
+}

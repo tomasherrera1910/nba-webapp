@@ -1,4 +1,4 @@
-import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats} from "./types"
+import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game} from "./types"
 import {formatPercentages, formatStats} from './formatStats'
 const baseURL = 'https://api.sportsdata.io/v3/nba'
 const KEY = process.env.KEY_NBA_API
@@ -68,5 +68,30 @@ export const api = {
                 ThreePointsPercentage: formatPercentages(dataPlayerStats[i].ThreePointersMade, dataPlayerStats[i].ThreePointersAttempted)
             }
         }).sort((a,b) => b.MinutesPerGame - a.MinutesPerGame)
+    },
+    getGamesByDay: async(day:string):Promise<Game[]> => {
+        const date = new Date()
+        if(day === 'yesterday'){
+            date.setDate(date.getDate() - 1)
+        }else if(day === 'tomorrow'){
+            date.setDate(date.getDate() + 1)
+        }
+        const dayResponse = await fetch(`${baseURL}/scores/json/GamesByDate/${date.toLocaleDateString('en-US').replaceAll('/','-')}?key=${KEY}`)
+        const dayGames:RawGame[] = await dayResponse.json()
+        return dayGames.map(game => {
+            return {
+                GameID: game.GameID,
+                HomeTeam: game.HomeTeam,
+                AwayTeam: game.AwayTeam,
+                DateTime: game.DateTime,
+                Day: game.Day,
+                Channel: game.Channel,
+                Status: game.Status,
+                HomeTeamScore: game.HomeTeamScore,
+                AwayTeamScore: game.AwayTeamScore,
+                Quarters: game.Quarters,
+                IsClosed: game.IsClosed
+            }
+        }) || []
     }
 }

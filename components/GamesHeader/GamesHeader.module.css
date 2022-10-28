@@ -1,0 +1,38 @@
+.gamesHeaderStyle{
+    display:flex;
+    gap: 1rem;
+}
+.cardGame{
+    border: 1px solid var(--text-color);
+    display:flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+.teamAndScoreSection{
+    display:flex;
+    gap: .5rem;
+    border-bottom: 1px solid var(--text-color);
+}
+.teamAndScoreSection div{
+    padding: 0 .5rem;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+.teamAndScoreSection div h3{
+    margin: 0;
+}
+.quarterSection{
+    display:flex;
+    justify-content: center;
+    gap: .25rem;
+}
+.quarterSection span{
+    display:block;
+    font-size: 12px;
+    text-align: center;
+}
+.quarterNumber{
+    opacity: .5;
+    font-size: 10px;
+}
