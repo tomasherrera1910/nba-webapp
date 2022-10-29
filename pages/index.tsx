@@ -4,29 +4,32 @@ import { GamesHeader } from '../components/GamesHeader'
 
 import { TeamsGrid } from '../components/TeamsGrid'
 import { api } from '../utils/api'
-import type { Team, Game } from '../utils/types'
+import type { Team, Game, TeamInfo } from '../utils/types'
 
 type Props = {
   teams: Team[];
   yesterdayGames: Game[];
   todayGames: Game[];
   tomorrowGames: Game[];
+  teamsObject: Record<Team['Key'], TeamInfo>;
 }
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   const teams = await api.getTeams()
   const yesterdayGames = await api.getGamesByDay('yesterday')
   const todayGames = await api.getGamesByDay('today')
   const tomorrowGames = await api.getGamesByDay('tomorrow')
+  const teamsObject = await api.getTeamsInfo()
   return {
     props: {
       teams,
       yesterdayGames,
       todayGames,
-      tomorrowGames
+      tomorrowGames,
+      teamsObject
     }
   }
 }
-const Home: NextPage<Props> = ({teams, yesterdayGames, todayGames, tomorrowGames}) => {
+const Home: NextPage<Props> = ({teams, yesterdayGames, todayGames, tomorrowGames, teamsObject}) => {
 
   return (
     <div>
@@ -36,7 +39,7 @@ const Home: NextPage<Props> = ({teams, yesterdayGames, todayGames, tomorrowGames
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>
       <main>
-        <GamesHeader yesterday={yesterdayGames} today={todayGames} tomorrow={tomorrowGames}/>
+        <GamesHeader yesterday={yesterdayGames} today={todayGames} tomorrow={tomorrowGames} teamsObject={teamsObject}/>
         <TeamsGrid teams={teams}/>
       </main>
     </div>

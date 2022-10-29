@@ -1,37 +1,19 @@
-import type {Game} from '../../utils/types'
+import type {Game, TeamInfo} from '../../utils/types'
+import { GameCard } from './GameCard';
 import styles from './GamesHeader.module.css'
-const {gamesHeaderStyle, cardGame, teamAndScoreSection, quarterSection, quarterNumber} = styles
+const {gamesHeaderStyle} = styles
 type Props = {
     yesterday: Game[];
     today: Game[];
     tomorrow: Game[]; 
+    teamsObject: Record<string, TeamInfo>;
 }
 
-export function GamesHeader({yesterday, today, tomorrow}: Props){
+export function GamesHeader({yesterday, today, tomorrow, teamsObject}: Props){
     return(
         <header className={gamesHeaderStyle}>
             {yesterday.length && yesterday.map(game => (
-                <article key={game.GameID} className={cardGame}>
-                    <section className={teamAndScoreSection}>
-                        <div>
-                            <h3>{game.HomeTeam}</h3>
-                            <span>{game.HomeTeamScore}</span>
-                        </div>
-                        <div>
-                            <h3>{game.AwayTeam}</h3>
-                            <span>{game.AwayTeamScore}</span>
-                        </div>
-                    </section>
-                    <section className={quarterSection}>
-                        {game.Quarters.map(q => (
-                            <div key={q.Number}>
-                                <span className={quarterNumber}>{q.Number > 4 ? "PR" : q.Number}</span>
-                                <span>{q.HomeScore}</span>
-                                <span>{q.AwayScore}</span>
-                            </div>
-                        ))}
-                    </section>
-                </article>
+                <GameCard game={game} teamsObject={teamsObject} key={game.GameID}/>
             ))}
         </header>
     )

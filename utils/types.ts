@@ -200,7 +200,7 @@ export type Player = {
     FreeThrowPercentage: number;
 }
 
-type Quarter = {
+export type Quarter = {
     QuarterID: number;
     GameID: number;
     Number: number;
@@ -254,12 +254,10 @@ export type RawGame = {
     SeriesInfo?: any;
     Quarters: Quarter[];
 }
-
 export type Game = {
     GameID: number;
     Status: string;
-    Day: Date;
-    DateTime: Date;
+    DateTimeUTC: Date;
     AwayTeam: string;
     HomeTeam: string;
     Channel: string;
@@ -267,4 +265,12 @@ export type Game = {
     HomeTeamScore?: number;
     IsClosed: boolean;
     Quarters: Quarter[];  
+}
+
+export type TeamInfo = {
+    LogoURL: string;
+    Wins: number;
+    Losses: number;
+    PrimaryColor: string;
+    SecondaryColor: string;
 }

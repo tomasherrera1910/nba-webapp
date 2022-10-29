@@ -14,25 +14,63 @@
     border-bottom: 1px solid var(--text-color);
 }
 .teamAndScoreSection div{
-    padding: 0 .5rem;
+    padding: .25rem .5rem;
     display:flex;
     flex-direction: column;
     align-items: center;
 }
+.teamAndScoreSection div picture{
+    height: 25px;
+}
+.teamAndScoreSection div picture img{
+    height: 25px;
+    width: 30px;
+    object-fit: contain;
+}
 .teamAndScoreSection div h3{
     margin: 0;
+    font-size: 14px;
 }
+.teamAndScoreSection div span{
+    font-weight: 700;
+    font-size: 12px;
+} 
 .quarterSection{
     display:flex;
     justify-content: center;
     gap: .25rem;
+    padding: .15rem;
+    border-bottom: 1px solid var(--text-color);
 }
 .quarterSection span{
     display:block;
-    font-size: 12px;
+    font-size: 10px;
     text-align: center;
+}
+.quarterSection span:not(.quarterWinner, .quarterInfo span){
+    font-weight: 400;
+}
+.quarterInfo span{
+    font-weight: 700;
 }
 .quarterNumber{
     opacity: .5;
+}
+.quarterWinner{
+    font-weight: 900;
+}
+.gameInfo{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.gameInfo p{
+    margin: 0;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+.gameInfo span{
     font-size: 10px;
+    opacity: .8;
 }

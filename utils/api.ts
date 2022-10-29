@@ -1,4 +1,4 @@
-import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game} from "./types"
+import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game, TeamInfo} from "./types"
 import {formatPercentages, formatStats} from './formatStats'
 const baseURL = 'https://api.sportsdata.io/v3/nba'
 const KEY = process.env.KEY_NBA_API
@@ -83,8 +83,7 @@ export const api = {
                 GameID: game.GameID,
                 HomeTeam: game.HomeTeam,
                 AwayTeam: game.AwayTeam,
-                DateTime: game.DateTime,
-                Day: game.Day,
+                DateTimeUTC: game.DateTimeUTC,
                 Channel: game.Channel,
                 Status: game.Status,
                 HomeTeamScore: game.HomeTeamScore,
@@ -93,5 +92,19 @@ export const api = {
                 IsClosed: game.IsClosed
             }
         }) || []
+    },
+    getTeamsInfo: async():Promise<Record<RawTeam['Key'], TeamInfo>> => {
+        const teamsData = await api.getTeams()
+        let teamsInfo:Record<RawTeam['Key'], TeamInfo> = {}
+        teamsData.map(team => (
+            teamsInfo[team.Key] = {
+                LogoURL: team.WikipediaLogoUrl,
+                Wins: team.Wins,
+                Losses: team.Losses,
+                PrimaryColor: team.PrimaryColor,
+                SecondaryColor: team.SecondaryColor
+            })
+        )
+        return teamsInfo
     }
 }
