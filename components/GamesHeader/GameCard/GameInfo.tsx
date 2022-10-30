@@ -1,13 +1,22 @@
 import styles from '../GamesHeader.module.css'
-const {gameInfo} = styles
+const {gameInfo, gameNow} = styles
 type Props={
     date: Date;
     channel: string;
+    day: string;
+    status: string;
 }
-export function GameInfo({date, channel}: Props){
+export function GameInfo({date, channel, day, status}: Props){
+    const dateFormat = new Date(date)
+    const hour = dateFormat.getHours() ? dateFormat.getHours() : '00'
+    const minutes = dateFormat.getMinutes() ? dateFormat.getMinutes() : '00' 
+    const gameStatus = (status === 'F/OT' || status ==='Final') 
+                        ? status 
+                        : status === 'InProgress' ? 'Now' 
+                        : `${hour}:${minutes}`
     return(
         <section className={gameInfo}>
-            <p><span>UTC Schedule: </span>{new Date(date).toLocaleTimeString()}</p>
+            <span>{day} - <span className={gameStatus === 'Now' ? gameNow : ''}>{gameStatus}</span></span>
             <p><span>Channel: </span>{channel}</p>
         </section>
     )

@@ -12,8 +12,14 @@ type Props = {
 export function GamesHeader({yesterday, today, tomorrow, teamsObject}: Props){
     return(
         <header className={gamesHeaderStyle}>
-            {yesterday.length && yesterday.map(game => (
-                <GameCard game={game} teamsObject={teamsObject} key={game.GameID}/>
+            {yesterday.map(game => (
+                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Yesterday'}/>
+            ))}
+            {today.map(game => (
+                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Today'}/>
+            ))}
+            {tomorrow.map(game => (
+                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Tomorrow'}/>
             ))}
         </header>
     )
