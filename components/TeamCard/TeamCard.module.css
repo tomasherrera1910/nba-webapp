@@ -80,9 +80,12 @@
     background-color: var(--secondary);
     color: var(--primary);
 }
-@media(min-width: 615px) and (max-width: 735px){
-    .teamRecord, .teamName{
+@media(min-width: 645px) and (max-width: 735px){
+    .teamName{
         font-size: 1.25rem;
+    }
+    .teamRecord{
+        font-size: 1.1rem;
     }
     .teamName span{
         font-size: .9rem;
@@ -93,5 +96,21 @@
     .card{
         padding: .5rem 1rem .5rem 2.5rem;
         gap: .5rem;
+    }
+}
+@media(max-width: 395px){
+    .teamName span{
+        font-size: .8rem;
+    }
+    .teamRecord, .teamName{
+        font-size: 1.2rem;
+    }
+}
+@media(max-width: 360px){
+    .card picture img{
+        width: 40px;
+    }
+    .card{
+        gap: .25rem;
     }
 }

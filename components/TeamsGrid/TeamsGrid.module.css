@@ -47,7 +47,7 @@
 .titleConferenceDisabled{
     opacity: .6;
 }
-@media (max-width: 615px){
+@media (max-width: 645px){
     .toggleButton{
         display:block;
     }
