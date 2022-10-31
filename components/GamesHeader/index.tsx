@@ -1,7 +1,15 @@
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Scrollbar, Pagination, A11y } from 'swiper';
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import 'swiper/css/scrollbar'
+
 import type {Game, TeamInfo} from '../../utils/types'
 import { GameCard } from './GameCard';
 import styles from './GamesHeader.module.css'
 const {gamesHeaderStyle} = styles
+
 type Props = {
     yesterday: Game[];
     today: Game[];
@@ -10,17 +18,29 @@ type Props = {
 }
 
 export function GamesHeader({yesterday, today, tomorrow, teamsObject}: Props){
+    const getDay = (index:number):string => {
+        return index >= yesterday.length + today.length ? 'Tomorrow'
+                : index >= yesterday.length ? 'Today'
+                : 'Yesterday'
+    }
     return(
         <header className={gamesHeaderStyle}>
-            {yesterday.map(game => (
-                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Yesterday'}/>
-            ))}
-            {today.map(game => (
-                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Today'}/>
-            ))}
-            {tomorrow.map(game => (
-                <GameCard game={game} teamsObject={teamsObject} key={game.GameID} day={'Tomorrow'}/>
-            ))}
+            <Swiper
+                modules={[Navigation, Pagination, Scrollbar, A11y]}
+                spaceBetween={0}
+                slidesPerView={'auto'}
+                navigation
+                scrollbar={{ draggable: true }}
+                style={{height: 'fit-content', display:'flex', width:'100vw'}}
+            >
+                {[...yesterday, ...today, ...tomorrow].map((game, i) => (
+                    <SwiperSlide key={game.GameID} style={{width:'fit-content'}}>
+                        <GameCard game={game} teamsObject={teamsObject} day={getDay(i)}/>
+                    </SwiperSlide>
+                ))}
+                
+            </Swiper>
+            
         </header>
     )
 

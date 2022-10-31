@@ -1,6 +1,5 @@
 .gamesHeaderStyle{
     display:flex;
-    overflow-x: scroll;
 }
 .cardGame{
     border: 1px solid var(--text-color);
@@ -51,7 +50,11 @@
     gap: .25rem;
     padding: 0 .15rem;
     height: 45px;
+    transition: ease .3s;
 }
+/* .cardGame:hover .quarterSection{
+    display:flex;
+} */
 .quarterSection span{
     display:block;
     font-size: 10px;
@@ -82,12 +85,17 @@
     font-weight: 600;
     text-align: center;
 }
-.gameInfo span:not(.gameNow){
+.gameInfo span:not(.gameNow, .gameFinished){
     font-size: 10px;
     opacity: .8;
 }
-.gameNow{
+.gameNow, .gameFinished{
     font-size: 10px;
-    color: rgb(47, 199, 52);
     font-weight: 700;
+}
+.gameNow{
+    color: rgb(47, 199, 52);
+}
+.gameFinished{
+    color: rgb(206, 42, 16);
 }
