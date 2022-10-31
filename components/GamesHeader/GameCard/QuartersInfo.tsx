@@ -1,14 +1,29 @@
+import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import type {Quarter} from '../../../utils/types'
 import styles from '../GamesHeader.module.css'
-const {quarterSection, quarterNumber, quarterWinner, quarterInfo} = styles
+import { toggle } from '../../../utils/toggle';
+const {quarterSection, quarterNumber, quarterWinner, quarterInfo, toggleQuarter, showQuarters} = styles
 type Props = {
     quarters: Quarter[];
     home:string;
     away:string;
+    gameID: number;
 }
-export function QuartersInfo({quarters, home, away}: Props){
+export function QuartersInfo({quarters, home, away, gameID}: Props){
+    const [quarterToggle, setQuarterToggle] = useState(false)
+    const handleToggle = () => {
+        setQuarterToggle(prevState => !prevState)
+        toggle(`quarters-${gameID}`, showQuarters)
+    }
     return(
-        <section className={quarterSection}>
+        <>
+        {
+        quarterToggle ? <button className={toggleQuarter} onClick={handleToggle}>Less <FontAwesomeIcon icon={faAngleUp}/></button>
+                      : <button className={toggleQuarter} onClick={handleToggle}>More <FontAwesomeIcon icon={faAngleDown}/></button>
+        }
+        <section className={quarterSection} id={`quarters-${gameID}`}>
             <div className={quarterInfo}>
                 <span>Q</span>    
                 <span>{home}</span>    
@@ -22,5 +37,6 @@ export function QuartersInfo({quarters, home, away}: Props){
                 </div>
             ))}
         </section>
+        </>
     )
 }

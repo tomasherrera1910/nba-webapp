@@ -11,6 +11,7 @@ type Props = {
 }
 
 export function GameCard({game, teamsObject, day}: Props){
+    
     return(
         <article key={game.GameID} className={cardGame}>
             <GameInfo date={game.DateTimeUTC} channel={game.Channel} day={day} status={game.Status}/> 
@@ -18,8 +19,8 @@ export function GameCard({game, teamsObject, day}: Props){
                 <TeamGameCard team={game.HomeTeam} teamScore={game.HomeTeamScore} teamInfo={teamsObject[game.HomeTeam]}/>
                 <TeamGameCard team={game.AwayTeam} teamScore={game.AwayTeamScore} teamInfo={teamsObject[game.AwayTeam]}/>
             </section>
-            {game.Status !== 'Scheduled' && 
-                <QuartersInfo quarters={game.Quarters} home={game.HomeTeam} away={game.AwayTeam}/>
+            {game.Status !== 'Scheduled' &&
+                <QuartersInfo quarters={game.Quarters} home={game.HomeTeam} away={game.AwayTeam} gameID={game.GameID}/>
             }
         </article>
     )

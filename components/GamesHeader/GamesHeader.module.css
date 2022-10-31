@@ -1,5 +1,10 @@
 .gamesHeaderStyle{
     display:flex;
+    flex-direction: column;
+}
+.spanScrambledInfo{
+    font-size: 8px;
+    opacity: .7;
 }
 .cardGame{
     border: 1px solid var(--text-color);
@@ -44,7 +49,7 @@
     font-size: 12px;
 } 
 .quarterSection{
-    display:flex;
+    display:none;
     justify-content: center;
     align-items: center;
     gap: .25rem;
@@ -52,9 +57,24 @@
     height: 45px;
     transition: ease .3s;
 }
-/* .cardGame:hover .quarterSection{
+.toggleQuarter{
+    align-self: center;
     display:flex;
-} */
+    align-items: center;
+    font-size: 10px;
+    font-weight: 700;
+    cursor:pointer;
+    color: rgb(38, 79, 181);
+    background:none;
+    border:none;
+    transition: ease .3s;
+}
+.toggleQuarter:hover{
+    color: rgb(27, 149, 171);
+}
+.showQuarters{
+    display:flex;
+}
 .quarterSection span{
     display:block;
     font-size: 10px;
