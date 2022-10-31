@@ -31,7 +31,7 @@ export function GamesHeader({yesterday, today, tomorrow, teamsObject}: Props){
                 slidesPerView={'auto'}
                 navigation
                 scrollbar={{ draggable: true }}
-                style={{height: 'fit-content', display:'flex', width:'100vw', paddingBottom: 8}}
+                style={{height: 'fit-content', display:'flex', width:'100%', paddingBottom: 8}}
             >
                 {[...yesterday, ...today, ...tomorrow].map((game, i) => (
                     <SwiperSlide key={game.GameID} style={{width:'fit-content'}}>
