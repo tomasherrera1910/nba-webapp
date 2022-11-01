@@ -274,3 +274,18 @@ export type TeamInfo = {
     PrimaryColor: string;
     SecondaryColor: string;
 }
+export type TeamInfoDetail = {
+    Key: string;
+    City: string;
+    Name: string;
+    LogoURL: string;
+    Wins: number;
+    Losses: number;
+    PrimaryColor: string;
+    SecondaryColor: string;
+    Conference: string;
+    ConferencePosition: number;
+    Division: string;
+    DivisionPosition: number;
+    NBAPosition: number;
+}

@@ -54,7 +54,7 @@
     align-items: center;
     gap: .25rem;
     padding: 0 .15rem;
-    height: 45px;
+    /* height: 45px; */
     transition: ease .3s;
 }
 .toggleQuarter{

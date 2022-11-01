@@ -5,7 +5,6 @@ type Props = {
     player: Player
 }
 export function PlayerTeamCard({player}: Props){
-    console.log({player})
     return(
         <article className={cardPlayer}>
             <picture>

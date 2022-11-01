@@ -39,7 +39,7 @@ export function GamesHeader({yesterday, today, tomorrow, teamsObject}: Props){
                     </SwiperSlide>
                 ))}
             </Swiper>
-            <span className={spanScrambledInfo}>*The scores are randomly adjusted up or down between 5% and 20% from the actual value.</span>
+            <small className={spanScrambledInfo}>*The scores are randomly adjusted up or down between 5% and 20% from the actual value.</small>
         </header>
     )
 

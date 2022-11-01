@@ -1,4 +1,4 @@
-import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game, TeamInfo} from "./types"
+import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game, TeamInfo, TeamInfoDetail} from "./types"
 import {formatPercentages, formatStats} from './formatStats'
 const baseURL = 'https://api.sportsdata.io/v3/nba'
 const KEY = process.env.KEY_NBA_API
@@ -106,5 +106,49 @@ export const api = {
             })
         )
         return teamsInfo
+    },
+    getOneTeamInfo: async(teamKey:string):Promise<TeamInfoDetail> => {
+        let teamInfo:TeamInfoDetail = {
+                    Key: teamKey,
+                    City: '',
+                    Name: '',
+                    Conference: '',
+                    Division: '',
+                    LogoURL: '',
+                    Wins: 0,
+                    Losses: 0,
+                    PrimaryColor: '',
+                    SecondaryColor: '',
+                    ConferencePosition:0,
+                    DivisionPosition:0,
+                    NBAPosition:0
+        }
+        const teams = await api.getTeams()
+        teams.forEach(team => {
+            if(team.Key === teamKey){
+                teamInfo = {
+                    ...teamInfo,
+                    City: team.City,
+                    Name: team.Name,
+                    Conference: team.Conference,
+                    Division: team.Division,
+                    LogoURL: team.WikipediaLogoUrl,
+                    Wins: team.Wins,
+                    Losses: team.Losses,
+                    PrimaryColor: team.PrimaryColor,
+                    SecondaryColor: team.SecondaryColor,
+                }
+            }
+        })
+        const teamsNBA = teams.sort((a,b) => b.Percentage - a.Percentage).map(team => team.Key)
+        const teamsDivision = teams.filter(team => team.Division === teamInfo.Division).sort((a,b) => b.Percentage - a.Percentage).map(team => team.Key)
+        const teamsConference = teams.filter(team => team.Conference === teamInfo.Conference).sort((a,b) => b.Percentage - a.Percentage).map(team => team.Key)
+        teamInfo={
+            ...teamInfo,
+            DivisionPosition: teamsDivision.indexOf(teamInfo.Key) + 1,
+            ConferencePosition: teamsConference.indexOf(teamInfo.Key) + 1,
+            NBAPosition: teamsNBA.indexOf(teamInfo.Key) + 1
+        }
+        return teamInfo
     }
 }
