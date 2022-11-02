@@ -1,20 +1,55 @@
 .card{
     display:flex;
     align-items: center;
-    background-color: var(--primary);
-    padding: 1rem 0;
+    background-color: var(--bg-color-light);
+    padding: 1rem;
+    gap: 2rem;
 }
 .card img{
-    width: 200px;
+    height: 100px;
+    /* -webkit-filter: drop-shadow(1px 1px 0 var(--secondary))
+                  drop-shadow(-1px -1px 0 var(--secondary));
+    filter: drop-shadow(1px 1px 0 var(--secondary)) 
+            drop-shadow(-1px -1px 0 var(--secondary)); */
+}
+.teamNameSection{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    gap: .5rem;
 }
 .teamName{
-    color: var(--secondary);
+    color: var(--primary);
     line-height: 1;
-    font-size: 3rem;
+    font-size: 2.25rem;
+    display:flex;
+    flex-direction: column;
+    margin:0;
+}
+.record{
+    font-size: 1rem;
+    font-weight: 700;
+    opacity: .8;
+    text-shadow: 2px 0 var(--bg-color-dark), -2px 0 var(--bg-color-dark), 0 2px var(--bg-color-dark), 0 -2px var(--bg-color-dark),
+                 1px 1px var(--bg-color-dark), -1px -1px var(--bg-color-dark), 1px -1px var(--bg-color-dark), -1px 1px var(--bg-color-dark);
+}
+.teamName span{
+    color: var(--secondary);
+    font-size: 1.5rem;
+    font-weight: 300;
+}
+.positionsSection{
+    display:flex;
+    justify-content: space-around;
+    gap: 1rem;
+}
+.positionsSection h3{
+    font-size: 1.5rem;
+    font-weight: 300;
     display:flex;
     flex-direction: column;
 }
-.teamName span{
-    font-size: 2rem;
-    font-weight: 300;
+.positionsSection h3 span{
+    font-size: 1rem;
+    font-weight: 700;
 }

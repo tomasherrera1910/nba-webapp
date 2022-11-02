@@ -3,8 +3,7 @@ import Link from 'next/link'
 import {darkTheme, lightTheme} from '../../utils/theme'
 import {toggle} from '../../utils/toggle'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars, faLightbulb} from '@fortawesome/free-solid-svg-icons'
-import { faLightbulb as faLightbulbOff} from '@fortawesome/free-regular-svg-icons'
+import { faBars, faSun, faMoon} from '@fortawesome/free-solid-svg-icons'
 import styles from './Navbar.module.css'
 const {navbar, nav, toggleButton, themeButton, navActive, leftSection, rightSection, on, off, darkSide, lightSide} = styles
 
@@ -29,8 +28,8 @@ export function Navbar(){
                 <button onClick={handleTheme} className={themeButton}>
                     <span className={darkThemeActive ? darkSide : lightSide}>
                         {
-                            darkThemeActive ? <FontAwesomeIcon icon={faLightbulbOff} className={off}/>
-                                            : <FontAwesomeIcon icon={faLightbulb} className={on}/>
+                            darkThemeActive ? <FontAwesomeIcon icon={faMoon} className={off}/>
+                                            : <FontAwesomeIcon icon={faSun} className={on}/>
                         }
                     </span>
                 </button>
