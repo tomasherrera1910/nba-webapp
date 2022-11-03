@@ -1,16 +1,25 @@
 .card{
     display:flex;
     align-items: center;
-    background-color: var(--bg-color-light);
+    background: var(--primary-opacity);
+    background: radial-gradient(circle, var(--primary-opacity) 25%, var(--secondary-opacity) 100%);
     padding: 1rem;
     gap: 2rem;
 }
+.card h3{
+    margin: 0;
+}
+.logoAndNameSection{
+    display:flex;
+    align-items: center;
+    gap: 1rem;
+}
 .card img{
     height: 100px;
-    /* -webkit-filter: drop-shadow(1px 1px 0 var(--secondary))
-                  drop-shadow(-1px -1px 0 var(--secondary));
-    filter: drop-shadow(1px 1px 0 var(--secondary)) 
-            drop-shadow(-1px -1px 0 var(--secondary)); */
+    /* -webkit-filter: drop-shadow(1px 1px 0 var(--secondary-opacity))
+                  drop-shadow(-1px -1px 0 var(--secondary-opacity));
+    filter: drop-shadow(1px 1px 0 var(--secondary-opacity)) 
+            drop-shadow(-1px -1px 0 var(--secondary-opacity)); */
 }
 .teamNameSection{
     display:flex;
@@ -20,6 +29,7 @@
 }
 .teamName{
     color: var(--primary);
+    text-shadow: 1px 1px var(--secondary), -1px -1px var(--secondary), 1px -1px var(--secondary), -1px 1px var(--secondary);
     line-height: 1;
     font-size: 2.25rem;
     display:flex;
@@ -35,8 +45,9 @@
 }
 .teamName span{
     color: var(--secondary);
+    text-shadow: 1px 1px var(--primary), -1px -1px var(--primary), 1px -1px var(--primary), -1px 1px var(--primary);
     font-size: 1.5rem;
-    font-weight: 300;
+    font-weight: 400;
 }
 .positionsSection{
     display:flex;
@@ -48,8 +59,16 @@
     font-weight: 300;
     display:flex;
     flex-direction: column;
+    text-shadow: 1px 1px var(--bg-color-dark), -1px -1px var(--bg-color-dark), 1px -1px var(--bg-color-dark), -1px 1px var(--bg-color-dark);
 }
 .positionsSection h3 span{
     font-size: 1rem;
     font-weight: 700;
+}
+@media(max-width: 700px){
+    .card{
+        padding: .5rem .25rem;
+        flex-direction: column;
+        gap: .5rem;
+    }
 }

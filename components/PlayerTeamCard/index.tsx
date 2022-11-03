@@ -1,6 +1,6 @@
 import { type Player } from "../../utils/types";
 import styles from './PlayerTeamCard.module.css'
-const {cardPlayer, cardInfo, jerseyNumber, statsPlayer, position} = styles
+const {cardPlayer, cardInfo,firstname, lastname, jerseyNumber, statsPlayer, position} = styles
 type Props = {
     player: Player
 }
@@ -12,7 +12,7 @@ export function PlayerTeamCard({player}: Props){
             </picture>
             <section className={cardInfo}>
                 <div>
-                    <h3><span>{player.FirstName}</span> {player.LastName}</h3>  
+                    <h3><span className={firstname}>{player.FirstName}</span> <span className={lastname}>{player.LastName}</span></h3>  
                     <span className={position}>{player.Position}</span>
                 </div>
                 <span className={jerseyNumber}>#{player.Jersey}</span>
