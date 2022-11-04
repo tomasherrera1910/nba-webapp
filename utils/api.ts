@@ -1,4 +1,4 @@
-import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game, TeamInfo, TeamInfoDetail} from "./types"
+import type { Player, RawPlayer, RawPlayerStatsByTeam, Team, RawTeam, RawTeamStats, RawGame, Game, TeamInfo, TeamInfoDetail, PlayerStats, PlayerStatsRaw} from "./types"
 import {formatPercentages, formatStats} from './formatStats'
 const baseURL = 'https://api.sportsdata.io/v3/nba'
 const KEY = process.env.KEY_NBA_API
@@ -150,5 +150,29 @@ export const api = {
             NBAPosition: teamsNBA.indexOf(teamInfo.Key) + 1
         }
         return teamInfo
+    },
+    getPlayersStats: async():Promise<PlayerStats[]> => {
+        const playersResponse = await fetch(`${baseURL}/stats/json/PlayerSeasonStats/2023?key=${KEY}`)
+        const players:PlayerStatsRaw[] = await playersResponse.json()
+        return players.map(player => (
+            {
+                PlayerID: player.PlayerID,
+                Team: player.Team,
+                Name: player.Name,
+                Position: player.Position,
+                Games: player.Games,
+                FieldGoalsPercentage: player.FieldGoalsPercentage,
+                ThreePointersPercentage: player.ThreePointersPercentage,
+                FreeThrowsPercentage: player.FreeThrowsPercentage,
+                PointsPerGame: formatStats(player.Points, player.Games),
+                AssistsPerGame: formatStats(player.Assists, player.Games),
+                ReboundsPerGame: formatStats(player.Rebounds, player.Games),
+                StealsPerGame: formatStats(player.Steals, player.Games),
+                BlockedShotsPerGame: formatStats(player.BlockedShots, player.Games),
+                TurnoversPerGame: formatStats(player.Turnovers, player.Games),
+                DoubleDoubles: player.DoubleDoubles,
+                TripleDoubles: player.TripleDoubles
+            }
+        ))
     }
 }

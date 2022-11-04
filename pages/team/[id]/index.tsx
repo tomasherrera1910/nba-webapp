@@ -26,7 +26,7 @@ const PlayersTeam: NextPage<Props> = ({players, teamInfo}) => {
   return (
     <div>
       <Head>
-        <title>NBA Web | Team</title>
+        <title>NBA Web | {teamInfo.Name}</title>
         <meta name="description" content="NBA web made and desgined by a fan" />
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>

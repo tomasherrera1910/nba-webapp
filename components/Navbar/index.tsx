@@ -17,6 +17,9 @@ export function Navbar(){
         }
         setDarkTheme(prevState => !prevState)
     }
+    const handleToggleClick = () => {
+        toggle('nav-id', navActive)
+    }
     return(
         <header className={navbar}>
             <section className={leftSection}>
@@ -35,20 +38,21 @@ export function Navbar(){
                 </button>
             </section>
             <section className={rightSection}>
-                <button className={toggleButton} onClick={() => toggle('nav-id', navActive)}>
+                <button className={toggleButton} onClick={handleToggleClick}>
                     <FontAwesomeIcon icon={faBars}/>
                 </button>
                 <nav className={nav} id="nav-id">
                     <ul>
-                        <li>
-                            Ranking
-                        </li>
-                        <li>
-                            Standings
-                        </li>
-                        <li>
-                            Players
-                        </li>
+                        <Link href={'/'}>
+                        <a onClick={handleToggleClick}>
+                                <li>Home</li>
+                            </a>
+                        </Link>
+                        <Link href={'/stats'}>
+                            <a onClick={handleToggleClick}>
+                                <li>Players Stats</li>
+                            </a>
+                        </Link>
                     </ul>
                 </nav>
             </section>
