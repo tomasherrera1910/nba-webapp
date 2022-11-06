@@ -24,6 +24,10 @@ a {
   box-sizing: border-box;
   transition: background-color .2s ease-in-out;
 }
+/* min-height of main for footer is always bottom*/
+main{
+  min-height: calc(100vh - 90px - 50px); 
+}
 /* SWIPER JS CUSTOM STYLES */
 .swiper-button-prev,
 .swiper-button-next{ 

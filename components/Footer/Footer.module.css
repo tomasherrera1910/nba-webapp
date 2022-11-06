@@ -8,6 +8,7 @@
     background-color: var(--bg-color-light);
     color: #aaa;
     font-weight: 200;
+    height: 90px;
 }
 .footer p{
     margin: 0;
