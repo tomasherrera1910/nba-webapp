@@ -1,6 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
-import { PlayersStatsGrid } from '../../components/PlayersStatsGrid'
+import { PlayersStatsMain } from '../../components/PlayersStatsMain'
 import { api } from '../../utils/api'
 import type { PlayerStats, TeamInfo } from '../../utils/types'
 
@@ -30,7 +30,7 @@ const PlayersStats: NextPage<Props> = ({players, teamInfo}) => {
         {/* <link rel="icon" href="/nba-logo.png" /> */}
       </Head>
       <main>
-        <PlayersStatsGrid players={players} teamInfo={teamInfo}/>
+        <PlayersStatsMain players={players} teamInfo={teamInfo}/>
       </main>
     </div>
   )
