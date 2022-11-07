@@ -1,0 +1,48 @@
+.container{
+    display:flex;
+    flex-direction: column;    
+}
+.container h3{
+    font-family: 'Bebas Neue', cursive;
+    font-size: 2rem;
+    margin: 4px 0;
+}
+.container h3 span{
+    font-family: Roboto, sans-serif;
+    font-size: 1rem;
+    opacity: .7;
+}
+.moreButton{
+    color: var(--nba-blue);
+    cursor:pointer;
+    background:none;
+    border:none;
+    transition: ease .3s;
+    font-size: 16px;
+    font-weight: 700;
+    margin: 8px 0;
+}
+.moreButton:hover{
+    color: rgb(24, 133, 216);
+}
+.playerCard{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+.playerCard div{
+    display:flex;
+    align-items:center;
+    gap: .25rem;
+}
+.positionSpan{
+    margin-right: .5rem;
+    position: relative;
+    font-size: .75rem;
+    opacity: .8;
+}
+
+.playerCard img{
+    height: 20px;
+}

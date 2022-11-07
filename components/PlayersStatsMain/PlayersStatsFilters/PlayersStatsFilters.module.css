@@ -1,0 +1,42 @@
+.filtersContainer{
+    display:flex;
+    gap: 1rem;
+}
+.searchInputContainer{
+    position: relative;
+}
+.searchInputContainer input,
+.select{
+    padding: .50rem 1.40rem .50rem .25rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: inherit;
+    background-color: rgba(50, 50, 50, .2);
+    border: 1px solid var(--bg-color-light);
+    outline:none;
+    border-radius: .25rem;
+    transition: ease .3s;
+}
+.searchInputContainer input:focus,
+.select:focus{
+    border: 1px solid var(--nba-blue);
+    box-shadow: 1px 1px 4px 1px var(--nba-blue);
+}
+.searchInputContainer button{
+    position: absolute;
+    right: 0;
+    color: inherit;
+    height: 100%;
+    cursor:pointer;
+    background: none;
+    border: none;
+}
+.select option{
+    background-color: var(--bg-color-dark);
+}
+.select{
+    cursor: pointer;
+}
+.select:hover{
+    background-color: rgba(75, 75, 75, .6);
+}
