@@ -1,6 +1,6 @@
 import { PlayerStats, TeamInfo } from "../../../utils/types"
 import styles from './PlayersStatsList.module.css'
-const {playerCard, positionSpan} = styles
+const {playerCard, positionSpan, positionInCourt} = styles
 type Props = {
     player: PlayerStats
     filterStat: keyof PlayerStats
@@ -20,6 +20,7 @@ export function PlayerStatsCard({player, filterStat, teamInfo, position}: Props)
                     <img src={teamInfo.LogoURL} alt={`${player.Team} logo`}/>
                 </picture>
                 <p>{player.Name}</p>
+                <span className={positionInCourt}>&bull; {player.Position}</span>
             </div>
             <span>{player[filterStat]}</span>
         </article>

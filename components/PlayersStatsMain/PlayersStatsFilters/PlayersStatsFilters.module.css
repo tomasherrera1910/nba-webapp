@@ -40,3 +40,8 @@
 .select:hover{
     background-color: rgba(75, 75, 75, .6);
 }
+@media(max-width: 425px){
+    .filtersContainer{
+        flex-direction: column;
+    }
+}

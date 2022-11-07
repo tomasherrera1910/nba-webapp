@@ -30,17 +30,26 @@
     align-items: center;
     justify-content: space-between;
     width: 300px;
+    border-bottom: 1px solid var(--text-color-opacity);
 }
 .playerCard div{
     display:flex;
     align-items:center;
     gap: .25rem;
 }
+.playerCard div p{
+    font-weight: 700;
+}
 .positionSpan{
     margin-right: .5rem;
     position: relative;
     font-size: .75rem;
     opacity: .8;
+}
+.positionInCourt{
+    font-size: .60rem;
+    font-weight: 700;
+    color: var(--text-color-opacity)
 }
 
 .playerCard img{
