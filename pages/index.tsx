@@ -30,7 +30,6 @@ export const getServerSideProps: GetServerSideProps<Props> = async () => {
   }
 }
 const Home: NextPage<Props> = ({teams, yesterdayGames, todayGames, tomorrowGames, teamsObject}) => {
-
   return (
     <div>
       <Head>
