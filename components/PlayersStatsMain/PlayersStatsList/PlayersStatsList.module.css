@@ -55,3 +55,30 @@
 .playerCard img{
     height: 20px;
 }
+@media(min-width: 1024px){
+    .container h3{
+        font-size: 2.5rem;
+    }
+    .container h3 span{
+        font-size: 1.25rem;
+    }
+    .moreButton{
+        font-size: 1.25rem;
+    }
+    .playerCard{
+        width: 500px;
+    }
+    .playerCard div{
+        gap: .35rem;
+    }
+    .positionSpan{
+        margin-right: .6rem;
+        font-size: 1rem;
+    }
+    .positionInCourt{
+        font-size: .80rem;
+    }
+    .playerCard img{
+        height: 25px;
+    }
+}
